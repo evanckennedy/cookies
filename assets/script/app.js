@@ -47,7 +47,7 @@ function showSettings() {
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*  Cookies                                              */
+/*  Set/Get Cookies                                      */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function setCookie(name, value, maxAge) {
   const options = {
@@ -68,6 +68,19 @@ function getCookie(name) {
   return match ? decodeURIComponent(match[1]) : 'Rejected';
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Print Cookies                                        */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function printCookies() {
+  utils.print(`Browser: ${utils.getCookie('Browser')}`);
+  utils.print(`Operating system: ${utils.getCookie('Operating system')}`);
+  utils.print(`Screen width: ${utils.getCookie('Screen width')}`);
+  utils.print(`Screen height: ${utils.getCookie('Screen height')}`);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* Browser Information                                   */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 const userAgent = navigator.userAgent.toLowerCase();
 
 function getOS() {
