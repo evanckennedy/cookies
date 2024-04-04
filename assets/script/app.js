@@ -15,6 +15,19 @@ const saveButton = utils.select('.save-preferences');
 let checkboxes = utils.selectAll('input[type="checkbox"]');
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* Check Cookies                                         */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function checkCookies() {
+  if (navigator.cookieEnabled) {
+    if (document.cookie.length === 0) {
+      setTimeout(() => {
+        dialog1.classList.remove('display-none');
+      }, 1000);
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Accept all cookies                                   */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function setAllCookies() {
@@ -123,25 +136,6 @@ function getScreenWidth() {
 
 function getScreenHeight() {
   return encodeURIComponent(`${window.innerHeight}px`);
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/* Check Cookies                                         */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-function checkCookies() {
-  // Check if cookies are enabled
-  if (navigator.cookieEnabled) {
-    // Check if there are any cookies stored
-    if (document.cookie.length === 0) {
-      setTimeout(() => {
-        dialog1.classList.remove('display-none');
-      }, 1000);
-    }
-  } else {
-    setTimeout(() => {
-      dialog1.classList.remove('display-none');
-    }, 1000);
-  }
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
