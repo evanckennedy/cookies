@@ -13,7 +13,6 @@ const acceptButton = utils.select('.accept');
 const settingsButton = utils.select('.settings');
 const saveButton = utils.select('.save-preferences');
 let checkboxes = utils.selectAll('input[type="checkbox"]');
-console.log(checkboxes.length);
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Accept all cookies                                   */
@@ -26,7 +25,7 @@ function setAllCookies() {
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*  Some Cookies                                         */
+/*  Personalize Cookies                                  */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function personalizeCookies() {
   const name = ['Browser', 'Operating system', 'Screen width', 'Screen height']
@@ -34,17 +33,9 @@ function personalizeCookies() {
 
   for (let i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
-      setCookie(name[i], valuesArr[i], 15)
+      setCookie(name[i], valuesArr[i], 15);
     }
   } 
-}
-
-
-let inputElement = document.querySelector('input[type="checkbox"]');
-if (inputElement.checked) {
-  console.log('The checkbox is checked.');
-} else {
-  console.log('The checkbox is not checked.');
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -148,4 +139,8 @@ utils.listen('click', settingsButton, showSettings);
 utils.listen('click', acceptButton, () => {
   setAllCookies();
   dialog1.classList.add('display-none');
+});
+utils.listen('click', saveButton, () => {
+  personalizeCookies();
+  dialog2.classList.add('display-none');
 });
