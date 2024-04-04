@@ -14,7 +14,22 @@ const settingsButton = utils.select('.settings');
 const saveButton = utils.select('.save-preferences')
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*  Organizer                                            */
+/*  Accept all cookies                                   */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function setAllCookies() {
+
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Settings                                             */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function showSettings() {
+  dialog1.classList.add('display-none');
+  dialog2.classList.remove('display-none');
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Cookies                                              */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function setCookie(name, value, maxAge) {
   const options = {
@@ -102,3 +117,4 @@ function checkCookies() {
 /* Event Listeners                                       */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 utils.listen('DOMContentLoaded', document, checkCookies);
+utils.listen('click', settingsButton, showSettings);
