@@ -188,7 +188,7 @@ input:checked + .slider:before {
   font-size: 2.2rem;
 }
 
-.dialog-one div {
+.dialog-two div {
   align-items: center;
   padding: .3rem 0;
 }
@@ -196,7 +196,8 @@ input:checked + .slider:before {
 .dialogs input[type="button"] {
   border-radius: var(--border-radius-50);
   text-align: center;
-  padding: 0.3rem 1rem;
+  height: 3rem;
+  padding: 0 1rem;
 }
 .save-preferences, .accept {
   background-color: var(--purple-button);

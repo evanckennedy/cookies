@@ -4,6 +4,14 @@
 // and CORS issues
 import * as utils from './utils.js';
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Selector                                             */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+const dialog1 = utils.select('.dialog-one');
+const dialog2 = utils.select('.dialog-two');
+const acceptButton = utils.select('.accept');
+const settingsButton = utils.select('.settings');
+const saveButton = utils.select('.save-preferences')
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Organizer                                            */
@@ -24,7 +32,7 @@ function setCookie(name, value, maxAge) {
 function getCookie(name) {
   const encodedName = `${encodeURIComponent(name).replace(/[\-\.\+\*]/g, '\\$&')}=`;
   const match = document.cookie.match(new RegExp(`(?:^|; )${encodedName}(.*?)(\$|; )`));
-  return match ? decodeURIComponent(match[1]) : null;
+  return match ? decodeURIComponent(match[1]) : 'Rejected';
 }
 
 const userAgent = navigator.userAgent.toLowerCase();
@@ -70,3 +78,27 @@ function getScreenHeight() {
 function getScreenWidth() {
   return encodeURIComponent(`${window.innerWidth}px`);
 }
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* Check Cookies                                         */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function checkCookies() {
+  // Check if cookies are enabled
+  if (navigator.cookieEnabled) {
+    // Check if there are any cookies stored
+    if (document.cookie.length === 0) {
+      setTimeout(() => {
+        dialog1.classList.remove('display-none');
+      }, 1000);
+    }
+  } else {
+    setTimeout(() => {
+      dialog1.classList.remove('display-none');
+    }, 1000);
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* Event Listeners                                       */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+utils.listen('DOMContentLoaded', document, checkCookies);
