@@ -11,7 +11,9 @@ const dialog1 = utils.select('.dialog-one');
 const dialog2 = utils.select('.dialog-two');
 const acceptButton = utils.select('.accept');
 const settingsButton = utils.select('.settings');
-const saveButton = utils.select('.save-preferences')
+const saveButton = utils.select('.save-preferences');
+let checkboxes = utils.selectAll('input[type="checkbox"]');
+console.log(checkboxes.length);
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Accept all cookies                                   */
@@ -26,6 +28,18 @@ function setAllCookies() {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Some Cookies                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function personalizeCookies() {
+  const name = ['Browser', 'Operating system', 'Screen width', 'Screen height']
+  const valuesArr = [getOS(), getBrowser(), getScreenWidth(), getScreenHeight()];
+
+  for (let i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      setCookie(name[i], valuesArr[i], 15)
+    }
+  } 
+}
+
+
 let inputElement = document.querySelector('input[type="checkbox"]');
 if (inputElement.checked) {
   console.log('The checkbox is checked.');
@@ -99,12 +113,12 @@ function getBrowser() {
   return encodeURIComponent('Unknown');
 }
 
-function getScreenHeight() {
-  return encodeURIComponent(`${window.innerHeight}px`);
-}
-
 function getScreenWidth() {
   return encodeURIComponent(`${window.innerWidth}px`);
+}
+
+function getScreenHeight() {
+  return encodeURIComponent(`${window.innerHeight}px`);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
