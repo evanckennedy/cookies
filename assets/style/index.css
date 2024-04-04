@@ -76,21 +76,25 @@ p {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .purple {
   color: var(--purple);
-  border-bottom: 1px dotted;
+  text-decoration: underline dotted;
 }
 
 .orange {
   color: var(--orange);
-  border-bottom: 1px dotted;
+  text-decoration: underline dotted;
 }
 
 .green {
   color: var(--green);
-  border-bottom: 1px dotted;
+  text-decoration: underline dotted;
 }
 
 article {
   position: absolute;
+}
+
+article p {
+  font-size: 3rem;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
