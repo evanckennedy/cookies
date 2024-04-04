@@ -17,7 +17,20 @@ const saveButton = utils.select('.save-preferences')
 /*  Accept all cookies                                   */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function setAllCookies() {
+  setCookie('Browser', getOS(), 15);
+  setCookie('Operating system', getBrowser(), 15);
+  setCookie('Screen width', getScreenWidth(), 15);
+  setCookie('Screen height', getScreenHeight(), 15);
+}
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Some Cookies                                         */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+let inputElement = document.querySelector('input[type="checkbox"]');
+if (inputElement.checked) {
+  console.log('The checkbox is checked.');
+} else {
+  console.log('The checkbox is not checked.');
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -118,3 +131,7 @@ function checkCookies() {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 utils.listen('DOMContentLoaded', document, checkCookies);
 utils.listen('click', settingsButton, showSettings);
+utils.listen('click', acceptButton, () => {
+  setAllCookies();
+  dialog1.classList.add('display-none');
+});
