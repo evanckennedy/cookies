@@ -175,7 +175,7 @@ input:checked + .slider:before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 25rem;
+  height: 29rem;
   width: 30rem;
   padding: 2rem;
   background-color: var(--white);
@@ -200,8 +200,8 @@ input:checked + .slider:before {
 .dialogs input[type="button"] {
   border-radius: var(--border-radius-50);
   text-align: center;
-  height: 3rem;
-  padding: 0 1rem;
+  height: 3.3rem;
+  padding: 0 1.5rem;
 }
 .save-preferences, .accept {
   background-color: var(--purple-button);
@@ -218,4 +218,8 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.save-preferences {
+  margin-top: 1rem;
 }
