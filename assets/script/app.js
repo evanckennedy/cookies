@@ -72,10 +72,10 @@ function getCookie(name) {
 /*  Print Cookies                                        */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function printCookies() {
-  utils.print(`Browser: ${utils.getCookie('Browser')}`);
-  utils.print(`Operating system: ${utils.getCookie('Operating system')}`);
-  utils.print(`Screen width: ${utils.getCookie('Screen width')}`);
-  utils.print(`Screen height: ${utils.getCookie('Screen height')}`);
+  utils.print(`Browser: ${getCookie('Browser')}`);
+  utils.print(`Operating system: ${getCookie('Operating system')}`);
+  utils.print(`Screen width: ${getCookie('Screen width')}`);
+  utils.print(`Screen height: ${getCookie('Screen height')}`);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -152,8 +152,10 @@ utils.listen('click', settingsButton, showSettings);
 utils.listen('click', acceptButton, () => {
   setAllCookies();
   dialog1.classList.add('display-none');
+  printCookies();
 });
 utils.listen('click', saveButton, () => {
   personalizeCookies();
   dialog2.classList.add('display-none');
+  printCookies();
 });
