@@ -212,3 +212,10 @@ input:checked + .slider:before {
   color: var(--purple-button);
   border: 1px solid var(--purple-button);
 }
+
+.dialog-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
